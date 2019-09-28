@@ -1,12 +1,12 @@
 //
-//  TicketTicketViewOutput.swift
+//  BlockBlockViewOutput.swift
 //  HuntsmanCheck
 //
 //  Created by dibadgo on 28/09/2019.
 //  Copyright © 2019 dibado. All rights reserved.
 //
 
-protocol TicketViewOutput {
+protocol BlockViewOutput {
 
     /**
         @author dibadgo
@@ -17,7 +17,6 @@ protocol TicketViewOutput {
     
     func onTabCloseButton()
 
-    func didSelectSaveButton()
+    func didSelectSaveButton(with comment: String?)
 
-    func didSelectBlockButton()
 }

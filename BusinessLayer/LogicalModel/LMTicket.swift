@@ -19,4 +19,31 @@ class LMTicket: LMBusinessModel {
         self.startOfTour = startOfTour
         self.dayOfBirth = dayOfBirth
     }
+
+    func generateHash() -> String {
+
+        // Формируем колбаску из следующих переменных
+        let colbosa = """
+                      \(fio)\(serNum)
+                      \(finishOfTour.toString(.RUSSIAN_DATE))
+                      \(startOfTour.toString(.RUSSIAN_DATE))
+                      \(dayOfBirth.toString(.RUSSIAN_DATE))
+                      """
+        // Чистим колбаску от пробелов
+        let clearColbosa = String(colbosa.filter {
+            !" \n\t\r".contains($0)
+        })
+
+        // Получаем sha256
+        let md5 = MD5(string: clearColbosa)
+
+        let md5Hex = md5.map {
+            String(format: "%02hhx", $0)
+        }.joined()
+
+//
+//        let md5Base64 = md5.base64EncodedString()
+
+        return md5Hex
+    }
 }

@@ -14,6 +14,7 @@ class DataBaseFramework: DIFramework {
         container
                 .append(part: CoreDataPart.self)
                 .append(part: TicketsPart.self)
+                .append(part: BlocksPart.self)
     }
 }
 
@@ -29,7 +30,16 @@ fileprivate class CoreDataPart: DIPart {
 fileprivate class TicketsPart: DIPart {
     class func load(container: DIContainer) {
         container
-                .register1(TicketsDB.init(witContext: ))
+                .register1(TicketsDB.init(witContext:))
                 .as(check: TicketsDao.self, { $0 })
     }
 }
+
+fileprivate class BlocksPart: DIPart {
+    class func load(container: DIContainer) {
+        container
+                .register1(BlockDB.init(witContext:))
+                .as(check: BlockDao.self, { $0 })
+    }
+}
+

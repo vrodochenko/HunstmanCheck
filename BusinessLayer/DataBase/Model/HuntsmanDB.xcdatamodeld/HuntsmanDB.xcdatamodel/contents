@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDMBlock" representedClassName="CDMBlock" syncable="YES" codeGenerationType="class">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="CDMTicket" representedClassName="CDMTicket" syncable="YES">
         <attribute name="dob" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="finishTrip" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -9,5 +13,6 @@
     </entity>
     <elements>
         <element name="CDMTicket" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="CDMBlock" positionX="-63" positionY="18" width="128" height="75"/>
     </elements>
 </model>

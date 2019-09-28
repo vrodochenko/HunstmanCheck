@@ -9,15 +9,23 @@
 import ViperMcFlurry
 
 class TicketRouter: TicketRouterInput {
-	
+
     weak var transitionHandler: RamblerViperModuleTransitionHandlerProtocol!
-    
+
     init(with controller: TicketViewController) {
         transitionHandler = controller
-    }    
+    }
 
     func closeCurrentModule() {
         transitionHandler.closeCurrentModule?(true)
     }
 
+    func showBlockModule(with ticket: LMTicket, moduleOutput: BlockModuleOutput) {
+        transitionHandler.openModule?(usingSegue: StoryboardSegue.Main.showBlackListSegue.rawValue)?
+                .thenChain { moduleInput -> RamblerViperModuleOutput? in
+
+                    (moduleInput as? BlockModuleInput)?.setTicket(ticket)
+                    return moduleOutput
+                }
+    }
 }

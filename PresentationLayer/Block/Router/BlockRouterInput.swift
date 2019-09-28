@@ -1,5 +1,5 @@
 //
-//  TicketTicketRouterInput.swift
+//  BlockBlockRouterInput.swift
 //  HuntsmanCheck
 //
 //  Created by dibadgo on 28/09/2019.
@@ -8,9 +8,7 @@
 
 import Foundation
 
-protocol TicketRouterInput {
+protocol BlockRouterInput {
 
     func closeCurrentModule()
-
-    func showBlockModule(with ticket: LMTicket, moduleOutput: BlockModuleOutput)
 }

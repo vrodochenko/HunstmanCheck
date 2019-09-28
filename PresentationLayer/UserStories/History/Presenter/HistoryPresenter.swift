@@ -66,16 +66,34 @@ extension HistoryPresenter {
 
     private func updateTickets() {
         let tickets = interactor.getAllTickets()
-
         let actions = [HistoryTicketCell.Action(.click, handler: didSelectTicket)]
 
-        let rows = tickets.map {
-            HistoryTicketCell.Builder(item: $0, actions: actions)
+        let taskGroups = Dictionary(grouping: tickets, by: { $0.startOfTour })
+                .mapValues { value in
+                    return value.map {
+                        HistoryTicketCell.Builder(
+                                item: $0,
+                                actions: actions)
+                    }
+                }
+
+        var sections = [TableSection]()
+
+        for (key, tasks) in taskGroups {
+            sections.append(TableSection(rows: tasks, title: key.toString(.RUSSIAN_DATE)))
         }
 
-        view.showHistory(with: [TableSection(rows: rows)])
-    }
+        let formatter = DateFormatter()
 
+        sections.sort { (key1: TableSection, key2: TableSection) in
+            let date1 = formatter.date(from: key1.title ?? "", by: .RUSSIAN_DATE)!
+            let date2 = formatter.date(from: key2.title ?? "", by: .RUSSIAN_DATE)!
+
+            return date1 > date2
+        }
+
+        view.showHistory(with: sections)
+    }
 }
 
 extension HistoryPresenter: TicketModuleOutput {

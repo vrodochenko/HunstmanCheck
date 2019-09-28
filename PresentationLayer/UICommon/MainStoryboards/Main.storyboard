@@ -261,11 +261,80 @@
                         <outlet property="saveButton" destination="ZDW-JT-4Xz" id="08F-99-7iA"/>
                         <outlet property="serNumLabel" destination="fha-oP-4Jd" id="bzF-mE-Z7i"/>
                         <outlet property="startFromLabel" destination="4jL-Kb-7rt" id="BwH-dm-LsD"/>
+                        <segue destination="Huo-NS-oGU" kind="show" identifier="showBlackListSegue" id="Czw-Ax-25n"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZy-9q-izX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2596" y="474.51274362818594"/>
+        </scene>
+        <!--Заблокировать-->
+        <scene sceneID="8CS-2f-NZy">
+            <objects>
+                <viewController id="Huo-NS-oGU" customClass="BlockViewController" customModule="HuntsmanCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5jn-WL-YAD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ФИО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eof-Qu-5zE">
+                                <rect key="frame" x="24" y="120.5" width="39.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qvh-kK-oEq">
+                                <rect key="frame" x="24" y="184" width="327" height="366"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ФИО посетителя:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljz-9b-RaS">
+                                <rect key="frame" x="24" y="88" width="139" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введие обоснование для блокировки:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDS-dT-YGg">
+                                <rect key="frame" x="24" y="153.5" width="306" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NlN-oT-LNx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JDS-dT-YGg" secondAttribute="trailing" constant="24" id="54v-Xq-6gZ"/>
+                            <constraint firstItem="NlN-oT-LNx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eof-Qu-5zE" secondAttribute="trailing" constant="24" id="6aY-mg-2k9"/>
+                            <constraint firstItem="eof-Qu-5zE" firstAttribute="top" secondItem="Ljz-9b-RaS" secondAttribute="bottom" constant="12" id="8Yu-c4-7dx"/>
+                            <constraint firstItem="Qvh-kK-oEq" firstAttribute="leading" secondItem="NlN-oT-LNx" secondAttribute="leading" constant="24" id="9S9-Oj-N6x"/>
+                            <constraint firstItem="NlN-oT-LNx" firstAttribute="bottom" secondItem="Qvh-kK-oEq" secondAttribute="bottom" constant="24" id="Hv9-32-OZk"/>
+                            <constraint firstItem="JDS-dT-YGg" firstAttribute="leading" secondItem="eof-Qu-5zE" secondAttribute="leading" id="MV1-Rx-5rC"/>
+                            <constraint firstItem="NlN-oT-LNx" firstAttribute="trailing" secondItem="Qvh-kK-oEq" secondAttribute="trailing" constant="24" id="MXl-Ed-gsN"/>
+                            <constraint firstItem="Qvh-kK-oEq" firstAttribute="top" secondItem="JDS-dT-YGg" secondAttribute="bottom" constant="10" id="Maf-pq-HDh"/>
+                            <constraint firstItem="eof-Qu-5zE" firstAttribute="leading" secondItem="Ljz-9b-RaS" secondAttribute="leading" id="UCS-th-agK"/>
+                            <constraint firstItem="eof-Qu-5zE" firstAttribute="leading" secondItem="NlN-oT-LNx" secondAttribute="leading" constant="24" id="j32-F1-N65"/>
+                            <constraint firstItem="Ljz-9b-RaS" firstAttribute="top" secondItem="NlN-oT-LNx" secondAttribute="top" constant="24" id="k1o-Ws-e79"/>
+                            <constraint firstItem="JDS-dT-YGg" firstAttribute="top" secondItem="eof-Qu-5zE" secondAttribute="bottom" constant="12" id="om3-Q6-ike"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NlN-oT-LNx"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Заблокировать" id="ZWX-2w-mTn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="uJ6-0Z-DFU">
+                            <connections>
+                                <action selector="didSelectSaveButton:" destination="Huo-NS-oGU" id="sza-Vy-rNP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="complaintTextView" destination="Qvh-kK-oEq" id="Rxq-ue-r5P"/>
+                        <outlet property="nameLabel" destination="eof-Qu-5zE" id="XUY-eu-MyN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qN2-Ui-zfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3396" y="475"/>
         </scene>
         <!--История-->
         <scene sceneID="wg7-f3-ORb">
@@ -334,7 +403,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="История" id="BwB-hn-Jvi"/>
+                    <navigationItem key="navigationItem" title="История" id="BwB-hn-Jvi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="reply" id="iNc-xL-vnK"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="historyTableView" destination="QPK-cS-cfp" id="Ycd-HB-7Kj"/>
                         <segue destination="PKi-2C-Ebc" kind="show" identifier="showTicketInfo" id="jcJ-jx-ufD"/>
@@ -409,6 +480,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cyG-Oo-LEI"/>
+        <segue reference="jcJ-jx-ufD"/>
     </inferredMetricsTieBreakers>
 </document>

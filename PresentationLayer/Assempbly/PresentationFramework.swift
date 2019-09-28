@@ -17,6 +17,7 @@ class PresentationFramework: DIFramework {
                 .append(framework: ScanFramework.self)
                 .append(framework: TicketFramework.self)
                 .append(framework: HistoryFramework.self)
+                .append(framework: BlockFramework.self)
 
 
         //Storyboards

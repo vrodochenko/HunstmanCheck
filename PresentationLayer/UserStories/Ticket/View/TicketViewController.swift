@@ -10,13 +10,16 @@ import UIKit
 
 class TicketViewController: UITableViewController {
 
+    private var ACTION_SECTION = Int(1)
+    private var BLOCK_ROW = Int(0)
+
     @IBOutlet weak var endToLabel: UILabel!
     @IBOutlet weak var serNumLabel: UILabel!
     @IBOutlet weak var startFromLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
+
     var output: TicketViewOutput!
     private var isActiveActionSection = true
 
@@ -31,7 +34,7 @@ class TicketViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
+        if section == ACTION_SECTION {
             if isActiveActionSection {
                 return super.tableView(tableView, numberOfRowsInSection: section)
             } else {
@@ -43,7 +46,7 @@ class TicketViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 1 && !isActiveActionSection {
+        if section == ACTION_SECTION && !isActiveActionSection {
             return 0
         } else {
             return super.tableView(tableView, heightForHeaderInSection: section)
@@ -51,10 +54,16 @@ class TicketViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 1 && !isActiveActionSection {
+        if section == ACTION_SECTION && !isActiveActionSection {
             return 0
         } else {
             return super.tableView(tableView, heightForFooterInSection: section)
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == ACTION_SECTION && indexPath.row == BLOCK_ROW {
+            output.didSelectBlockButton()
         }
     }
 }

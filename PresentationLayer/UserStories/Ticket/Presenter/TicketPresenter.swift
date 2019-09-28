@@ -54,10 +54,18 @@ extension TicketPresenter: TicketViewOutput {
         interactor.saveTicket(ticket)
         router.closeCurrentModule()
     }
+
+    func didSelectBlockButton() {
+        router.showBlockModule(with: ticket, moduleOutput: self)
+    }
 }
 
 extension TicketPresenter: TicketInteractorOutput {
     func onError(message: String) {
         view.showError(withMessage: message)
     }
+}
+
+extension TicketPresenter: BlockModuleOutput {
+
 }
