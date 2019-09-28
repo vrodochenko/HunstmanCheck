@@ -11,7 +11,7 @@ public class AppFramework: DIFramework {
         container
 //                .append(framework: FetchFramework.self)
                 .append(framework: NetworkFramework.self)
-//                .append(framework: DataBaseFramework.self)
+                .append(framework: DataBaseFramework.self)
 //                .append(framework: RepositoriesFramework.self)
     }
 }
