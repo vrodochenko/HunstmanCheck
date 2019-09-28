@@ -1,12 +1,12 @@
 //
-//  TicketTicketViewInput.swift
+//  HistoryHistoryViewInput.swift
 //  HuntsmanCheck
 //
 //  Created by dibadgo on 28/09/2019.
 //  Copyright © 2019 dibado. All rights reserved.
 //
 
-protocol TicketViewInput: class {
+protocol HistoryViewInput: class {
 
     /**
         @author dibadgo
@@ -14,9 +14,5 @@ protocol TicketViewInput: class {
     */
     func showError(withMessage message: String)
 
-    func setTicket(_ ticket: LMTicket)
-
-    func disableActionSection()
-
-    func disableSaveButton()
+    func showHistory(with rows: [TableSection])
 }

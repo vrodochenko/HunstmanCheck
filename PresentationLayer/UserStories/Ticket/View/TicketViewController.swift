@@ -15,8 +15,10 @@ class TicketViewController: UITableViewController {
     @IBOutlet weak var startFromLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     var output: TicketViewOutput!
+    private var isActiveActionSection = true
 
     // MARK: Life cycle
     override func viewDidLoad() {
@@ -27,9 +29,46 @@ class TicketViewController: UITableViewController {
     @IBAction func didSelectSaveButton(_ sender: Any) {
         output.didSelectSaveButton()
     }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 {
+            if isActiveActionSection {
+                return super.tableView(tableView, numberOfRowsInSection: section)
+            } else {
+                return 0
+            }
+        } else {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 1 && !isActiveActionSection {
+            return 0
+        } else {
+            return super.tableView(tableView, heightForHeaderInSection: section)
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 1 && !isActiveActionSection {
+            return 0
+        } else {
+            return super.tableView(tableView, heightForFooterInSection: section)
+        }
+    }
 }
 
 extension TicketViewController: TicketViewInput {
+
+    func disableActionSection() {
+        isActiveActionSection = false
+        tableView.reloadData()
+    }
+
+    func disableSaveButton() {
+        navigationItem.rightBarButtonItem = nil
+    }
 
     func setTicket(_ ticket: LMTicket) {
         self.endToLabel.text = ticket.finishOfTour.toString(.RUSSIAN_DATE)

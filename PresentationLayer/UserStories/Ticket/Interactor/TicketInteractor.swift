@@ -6,6 +6,8 @@
 //  Copyright © 2019 dibado. All rights reserved.
 //
 
+import Foundation
+
 class TicketInteractor: BaseInteractor, TicketInteractorInput {
 
     private let ticketsDao: TicketsDao
@@ -19,5 +21,9 @@ class TicketInteractor: BaseInteractor, TicketInteractorInput {
 
     func saveTicket(_ ticket: LMTicket) {
         ticketsDao.add(ticket: ticket)
+
+        NotificationCenter
+                .default
+                .post(name: .createTicket, object: nil)
     }
 }

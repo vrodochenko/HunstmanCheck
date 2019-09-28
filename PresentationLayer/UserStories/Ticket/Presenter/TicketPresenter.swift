@@ -6,6 +6,8 @@
 //  Copyright © 2019 dibado. All rights reserved.
 //
 
+import ViperMcFlurry.RamblerViperModuleOutput
+
 class TicketPresenter: BasePresenter {
 
     private weak var view: TicketViewInput!
@@ -13,6 +15,8 @@ class TicketPresenter: BasePresenter {
     private var router: TicketRouterInput!
 
     var ticket: LMTicket!
+
+    private var moduleOutput: TicketModuleOutput?
 
     init(withView view: TicketViewController, router: TicketRouterInput, interactor: TicketInteractorInput) {
         self.view = view
@@ -22,6 +26,10 @@ class TicketPresenter: BasePresenter {
 }
 
 extension TicketPresenter: TicketModuleInput {
+    public func setModuleOutput(_ moduleOutput: RamblerViperModuleOutput!) {
+        self.moduleOutput = moduleOutput as? TicketModuleOutput
+    }
+
     func setTicket(_ ticket: LMTicket) {
         self.ticket = ticket
     }
@@ -30,6 +38,12 @@ extension TicketPresenter: TicketModuleInput {
 extension TicketPresenter: TicketViewOutput {
     func viewIsReady() {
         view.setTicket(ticket)
+
+        if moduleOutput == nil {
+            view.disableActionSection()
+        } else {
+            view.disableSaveButton()
+        }
     }
 
     func onTabCloseButton() {

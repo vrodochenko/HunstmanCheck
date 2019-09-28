@@ -22,6 +22,7 @@ internal enum Asset {
     internal static let scanButton = ColorAsset(name: "scanButton")
   }
   internal enum Images {
+    internal static let image = ImageAsset(name: "Image")
     internal static let first = ImageAsset(name: "first")
     internal static let second = ImageAsset(name: "second")
   }

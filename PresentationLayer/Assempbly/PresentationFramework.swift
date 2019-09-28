@@ -16,6 +16,7 @@ class PresentationFramework: DIFramework {
         container
                 .append(framework: ScanFramework.self)
                 .append(framework: TicketFramework.self)
+                .append(framework: HistoryFramework.self)
 
 
         //Storyboards
