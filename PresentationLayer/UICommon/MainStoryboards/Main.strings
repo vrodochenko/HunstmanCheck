@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3HW-3r-BMe"; */
+"3HW-3r-BMe.text" = "Label";
+
+/* Class = "UILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
+"NDk-cv-Gan.text" = "Loaded by SecondViewController";
+
+/* Class = "UITabBarItem"; title = "Сканировать"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Сканировать";
+
+/* Class = "UITabBarItem"; title = "История"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "История";
+
+/* Class = "UITabBarItem"; title = "Еще"; ObjectID = "edM-5a-9Y0"; */
+"edM-5a-9Y0.title" = "Еще";
+
+/* Class = "UIButton"; normalTitle = "Сканировать"; ObjectID = "o86-aY-ykK"; */
+"o86-aY-ykK.normalTitle" = "Сканировать";
+
+/* Class = "UILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "Second View";

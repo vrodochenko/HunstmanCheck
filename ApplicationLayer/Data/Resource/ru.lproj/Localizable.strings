@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  HuntsmanCheck
+
+  Created by Арабаджиян Артем on 28/09/2019.
+  Copyright © 2019 DigitalCustoms. All rights reserved.
+*/
+
+"alert.tryNew" = "Повторить";
+"alert.exitBotton" = "Отмена";
+"alert.errorTitile" = "Ошибка";
+"alert.okButton" = "Ok";
+
+"errors.modelMapError"= "Ошибка распознования ответа от сервера. Разработчики уже в курсе!";
+"errors.grantError" = "Ошибка авторизации";
+"errors.serverError"= "На сервере произошла ошибка, попробуйте позже";
+"errors.undefError"= "Неизвестная ошибка";
+"errors.stayButton"= "Продолжить";
+"errors.exitButton"= "Выход";
