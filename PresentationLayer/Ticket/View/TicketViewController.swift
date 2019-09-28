@@ -23,6 +23,10 @@ class TicketViewController: UITableViewController {
         super.viewDidLoad()
         output.viewIsReady()
     }
+    
+    @IBAction func didSelectSaveButton(_ sender: Any) {
+        
+    }
 }
 
 extension TicketViewController: TicketViewInput {

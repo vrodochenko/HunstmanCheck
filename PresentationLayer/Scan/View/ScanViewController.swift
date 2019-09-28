@@ -18,6 +18,9 @@ class ScanViewController: BaseUIViewController {
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        prepareViewController()
+
         output.viewIsReady()
     }
 
@@ -70,5 +73,16 @@ extension ScanViewController: ZBarReaderDelegate {
 
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)
+    }
+}
+
+extension ScanViewController {
+    private func prepareViewController() {
+        UIAssistant.cornerRadius(forView: scanButton, radius: 10)
+        UIAssistant.setShadow(
+                forLayer: scanButton.layer,
+                color: Asset.Colors.scanButton.color,
+                radius: 0.5
+        )
     }
 }
