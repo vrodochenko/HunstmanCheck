@@ -12,4 +12,6 @@ protocol BlockDao {
     func removeAll()
 
     func getAll() -> [LMBlock]
+
+    func get(byUserHash userHash: String) -> LMBlock?
 }

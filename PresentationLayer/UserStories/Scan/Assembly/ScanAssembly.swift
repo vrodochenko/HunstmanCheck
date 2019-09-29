@@ -50,7 +50,7 @@ fileprivate class ScanRouterPart: DIPart {
 fileprivate class ScanInteractorsPart: DIPart {
     static func load(container: DIContainer) {
         container
-                .register1(ScanInteractor.init(jsonMapper:))
+                .register(ScanInteractor.init(jsonMapper:ticketDao:blackDao:))
                 .injection(cycle: true) {
                     $0.output = ($1 as ScanPresenter)
                 }

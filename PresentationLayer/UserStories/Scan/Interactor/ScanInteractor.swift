@@ -9,11 +9,15 @@
 class ScanInteractor: BaseInteractor, ScanInteractorInput {
 
     private let jsonMapper: JsonMapperProtocol
+    private let ticketDao: TicketsDao
+    private let blackDao: BlockDao
 
     weak var output: ScanInteractorOutput?
 
-    init(jsonMapper: JsonMapperProtocol) {
+    init(jsonMapper: JsonMapperProtocol, ticketDao: TicketsDao, blackDao: BlockDao) {
         self.jsonMapper = jsonMapper
+        self.ticketDao = ticketDao
+        self.blackDao = blackDao
         super.init()
     }
 
@@ -35,6 +39,14 @@ class ScanInteractor: BaseInteractor, ScanInteractorInput {
         }
 
         let logicModel = TicketsAdapter().lm(from: ticket)
+
+        if ticketDao.get(byId: logicModel.id) != nil {
+            logicModel.isSaved = true
+        }
+
+        if blackDao.get(byUserHash: logicModel.generateHash()) != nil {
+            logicModel.isBackMark = true
+        }
 
         output?.showTicketInfo(with: logicModel)
     }

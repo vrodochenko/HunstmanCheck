@@ -6,10 +6,11 @@
 import Foundation
 
 struct NMTicket: Decodable {
-    let fio, serNum: String
+    let fio, serNum, id: String
     let finishOfTour, startOfTour, dayOfBirth: Date
 
     enum CodingKeys: String, CodingKey {
+        case id
         case fio = "FIO"
         case dayOfBirth = "Day_of_birth"
         case serNum = "Ser_num"

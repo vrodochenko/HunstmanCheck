@@ -9,15 +9,19 @@
 import Foundation
 
 class LMTicket: LMBusinessModel {
-    let fio, serNum: String
+    let fio, serNum, id: String
     let finishOfTour, startOfTour, dayOfBirth: Date
 
-    init(fio: String, serNum: String, finishOfTour: Date, startOfTour: Date, dayOfBirth: Date) {
+    var isSaved = false
+    var isBackMark = false
+
+    init(id: String, fio: String, serNum: String, finishOfTour: Date, startOfTour: Date, dayOfBirth: Date) {
         self.fio = fio
         self.serNum = serNum
         self.finishOfTour = finishOfTour
         self.startOfTour = startOfTour
         self.dayOfBirth = dayOfBirth
+        self.id = id
     }
 
     func generateHash() -> String {

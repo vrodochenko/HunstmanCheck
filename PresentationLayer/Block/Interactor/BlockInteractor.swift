@@ -19,7 +19,7 @@ class BlockInteractor: BaseInteractor, BlockInteractorInput {
 
     func addToBlackList(ticket: LMTicket, comment: String) {
         let hash256 = ticket.generateHash()
-        let block = LMBlock(id: hash256, comment: comment)
+        let block = LMBlock(id: hash256, idTicket: ticket.id, comment: comment)
 
         blockDao.add(block: block)
     }

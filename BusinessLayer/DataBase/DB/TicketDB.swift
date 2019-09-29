@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class TicketsDB: BaseDB<CDMTicket, LMTicket>, TicketsDao {
     init(witContext context: CoreDataProtocol) {
@@ -15,5 +16,20 @@ class TicketsDB: BaseDB<CDMTicket, LMTicket>, TicketsDao {
 
     func add(ticket: LMTicket) {
         super.insertAll(items: [ticket])
+    }
+
+    func get(byId ticketId: String) -> LMTicket? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: self.entityName)
+        request.predicate = NSPredicate(format: "id = %@", ticketId)
+        do {
+            let items = try self.context.fetch(request) as! [CDMTicket]
+            let emmProfiles = items.map {
+                self.adapter.map(from: $0)
+            }
+            return emmProfiles.first
+        } catch {
+            print("Failed to fetch employees: \(error)")
+            return nil
+        }
     }
 }

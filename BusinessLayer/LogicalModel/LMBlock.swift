@@ -8,9 +8,11 @@ import Foundation
 class LMBlock: LMBusinessModel {
     let id: String
     let comment: String?
+    let idTicket: String
 
-    init(id: String, comment: String?) {
+    init(id: String, idTicket: String, comment: String?) {
         self.id = id
         self.comment = comment
+        self.idTicket = idTicket
     }
 }

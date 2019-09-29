@@ -64,7 +64,6 @@ extension ScanViewController: ZBarReaderDelegate {
         }
 
         let resultString = symbolFound!.data
-//        qrContentLable.text = resultString    //set barCode
 
         picker.dismiss(animated: true)
 

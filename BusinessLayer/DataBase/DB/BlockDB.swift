@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CoreData
 
 class BlockDB: BaseDB<CDMBlock, LMBlock>, BlockDao {
 
@@ -13,5 +14,20 @@ class BlockDB: BaseDB<CDMBlock, LMBlock>, BlockDao {
 
     func add(block: LMBlock) {
         super.insertAll(items: [block])
+    }
+
+    func get(byUserHash userHash: String) -> LMBlock? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: self.entityName)
+        request.predicate = NSPredicate(format: "id = %@", userHash)
+        do {
+            let items = try self.context.fetch(request) as! [CDMBlock]
+            let emmProfiles = items.map {
+                self.adapter.map(from: $0)
+            }
+            return emmProfiles.first
+        } catch {
+            print("Failed to fetch employees: \(error)")
+            return nil
+        }
     }
 }

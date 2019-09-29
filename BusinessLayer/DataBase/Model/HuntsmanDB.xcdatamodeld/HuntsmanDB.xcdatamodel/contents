@@ -3,16 +3,18 @@
     <entity name="CDMBlock" representedClassName="CDMBlock" syncable="YES" codeGenerationType="class">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="idTicket" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CDMTicket" representedClassName="CDMTicket" syncable="YES">
         <attribute name="dob" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="finishTrip" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="fio" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="passpotData" attributeType="String" syncable="YES"/>
         <attribute name="startTrip" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDMTicket" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="CDMBlock" positionX="-63" positionY="18" width="128" height="75"/>
+        <element name="CDMBlock" positionX="-63" positionY="18" width="128" height="90"/>
+        <element name="CDMTicket" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

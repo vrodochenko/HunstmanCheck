@@ -12,10 +12,12 @@ class TicketsAdapter: BaseDaoAdapter<CDMTicket, LMTicket> {
         cdm.startTrip = emm.startOfTour as NSDate
         cdm.fio = emm.fio
         cdm.passpotData = emm.serNum
+        cdm.id = emm.id
     }
 
     override func map(from cdm: CDMTicket) -> LMTicket {
         return LMTicket(
+                id: cdm.id,
                 fio: cdm.fio,
                 serNum: cdm.passpotData,
                 finishOfTour: cdm.finishTrip as Date,
@@ -26,6 +28,7 @@ class TicketsAdapter: BaseDaoAdapter<CDMTicket, LMTicket> {
 
     func lm(from nm: NMTicket) -> LMTicket {
         return LMTicket(
+                id: nm.id,
                 fio: nm.fio,
                 serNum: nm.serNum,
                 finishOfTour: nm.finishOfTour,

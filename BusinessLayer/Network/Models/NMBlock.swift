@@ -8,4 +8,5 @@ import Foundation
 struct NMBlock: Codable {
     let id: String
     let comment: String?
+    let idTicket: String
 }

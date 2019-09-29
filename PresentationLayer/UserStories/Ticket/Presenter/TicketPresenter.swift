@@ -44,6 +44,10 @@ extension TicketPresenter: TicketViewOutput {
         } else {
             view.disableSaveButton()
         }
+
+        if ticket.isSaved || ticket.isBackMark {
+            view.disableSaveButton()
+        }
     }
 
     func onTabCloseButton() {
@@ -51,8 +55,12 @@ extension TicketPresenter: TicketViewOutput {
     }
 
     func didSelectSaveButton() {
-        interactor.saveTicket(ticket)
-        router.closeCurrentModule()
+        if ticket.isSaved == false {
+            interactor.saveTicket(ticket)
+            router.closeCurrentModule()
+        } else {
+            view.showError(withMessage: "Повторное посещение")
+        }
     }
 
     func didSelectBlockButton() {

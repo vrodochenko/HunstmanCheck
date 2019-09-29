@@ -16,4 +16,6 @@ protocol TicketsDao {
     func removeAll()
 
     func getAll() -> [LMTicket]
+
+    func get(byId ticketId: String) -> LMTicket?
 }
