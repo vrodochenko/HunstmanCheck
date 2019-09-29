@@ -13,7 +13,7 @@ class BlockDaoAdapter: BaseDaoAdapter<CDMBlock, LMBlock> {
     }
 
     override func map(from cdm: CDMBlock) -> LMBlock {
-        return LMBlock(id: cdm.id ?? "", idTicket: cdm.idTicket ?? "", comment: cdm.comment)
+        return LMBlock(id: cdm.id ?? "", idTicket: cdm.idTicket ?? "", comment: cdm.comment ?? "")
     }
 
     func lm(from nm: NMBlock) -> LMBlock {

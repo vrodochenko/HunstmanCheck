@@ -10,6 +10,8 @@ import Foundation
 
 class HistoryPresenter: BasePresenter {
 
+    static var TICKETS = [LMTicket]()
+
     private weak var view: HistoryViewInput!
     private var interactor: HistoryInteractorInput!
     private var router: HistoryRouterInput!
@@ -38,6 +40,7 @@ extension HistoryPresenter: HistoryViewOutput {
     }
 
     func didSelectUploadButton() {
+        view.showLoading()
         interactor.uploadBlk()
     }
 }
@@ -45,10 +48,12 @@ extension HistoryPresenter: HistoryViewOutput {
 extension HistoryPresenter: HistoryInteractorOutput {
     func onError(message: String) {
         view.showError(withMessage: message)
+        view.hideLoading()
     }
 
     func didUploadBlk() {
-        // TODO
+        view.hideLoading()
+        view.showSuccess(message: "Вызгрузка данных произведена")
     }
 }
 
@@ -69,11 +74,12 @@ extension HistoryPresenter {
     }
 
     @objc func didCreateTicket(notification: NSNotification) {
+
         updateTickets()
     }
 
     private func updateTickets() {
-        let tickets = interactor.getAllTickets()
+        let tickets = HistoryPresenter.TICKETS
         let actions = [HistoryTicketCell.Action(.click, handler: didSelectTicket)]
 
         let taskGroups = Dictionary(grouping: tickets, by: { $0.startOfTour })

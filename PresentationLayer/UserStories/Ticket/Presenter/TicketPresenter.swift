@@ -52,6 +52,17 @@ extension TicketPresenter: TicketViewOutput {
         if ticket.isSaved && moduleOutput == nil{
             view.showError(withMessage: "Повторное добавление посетителя.")
         }
+
+        if ticket.isBackMark && moduleOutput == nil{
+            view.showError(withMessage: "Пользователь в черном списке")
+        }
+
+        if moduleOutput == nil || ticket.isBackMark{
+            view.disableActionSection()
+        } else {
+            view.disableSaveButton()
+        }
+
     }
 
     func onTabCloseButton() {
@@ -85,5 +96,7 @@ extension TicketPresenter: TicketInteractorOutput {
 }
 
 extension TicketPresenter: BlockModuleOutput {
-
+    func block() {
+        view.disableActionSection()
+    }
 }

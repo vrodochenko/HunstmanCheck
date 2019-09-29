@@ -26,7 +26,7 @@ class HistoryInteractor: BaseInteractor, HistoryInteractorInput {
     }
 
     func getAllTickets() -> [LMTicket] {
-        return ticketsDao.getAll()
+        return [LMTicket]()
     }
 
     func uploadBlk() {

@@ -20,7 +20,7 @@ class TicketInteractor: BaseInteractor, TicketInteractorInput {
     }
 
     func saveTicket(_ ticket: LMTicket) {
-        ticketsDao.add(ticket: ticket)
+        HistoryPresenter.TICKETS.append(ticket)
 
         NotificationCenter
                 .default

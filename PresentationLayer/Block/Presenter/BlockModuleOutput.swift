@@ -10,4 +10,5 @@ import ViperMcFlurry
 
 protocol BlockModuleOutput: class, RamblerViperModuleOutput {
 
+    func block()
 }

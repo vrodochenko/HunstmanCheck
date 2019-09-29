@@ -40,7 +40,7 @@ class ScanInteractor: BaseInteractor, ScanInteractorInput {
 
         let logicModel = TicketsAdapter().lm(from: ticket)
 
-        if ticketDao.get(byId: logicModel.id) != nil {
+        if HistoryPresenter.TICKETS.contains(where: { logicModel.id == $0.id }) {
             logicModel.isSaved = true
         }
 

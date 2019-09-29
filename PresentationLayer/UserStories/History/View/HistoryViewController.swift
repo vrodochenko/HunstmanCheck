@@ -12,6 +12,8 @@ class HistoryViewController: BaseUIViewController {
 
     @IBOutlet weak var historyTableView: UITableView!
 
+    @IBOutlet weak var lodingView: CUIXLoading!
+
     private var tableDirector: TableViewDirector!
     var output: HistoryViewOutput!
 
@@ -26,10 +28,25 @@ class HistoryViewController: BaseUIViewController {
     
     @IBAction func uploadButton(_ sender: Any) {
         output.didSelectUploadButton()
-    }    
+    }
 }
 
 extension HistoryViewController: HistoryViewInput {
+    func showSuccess(message: String) {
+        showAlert(with: message, title: "Отлично!")
+    }
+
+    func showLoading() {
+        lodingView.startLoading(with: "Выгрузка данных...")
+        lodingView.isHidden = false
+        historyTableView.isHidden = true
+    }
+
+    func hideLoading() {
+        lodingView.stopLoading()
+        lodingView.isHidden = true
+        historyTableView.isHidden = false
+    }
 
     func showHistory(with sections: [TableSection]) {
         tableDirector.replace(sections: sections)

@@ -81,3 +81,26 @@ extension UIViewController {
 //    }
 //    return Data(hash)
 //}
+
+extension UIView {
+    
+    @discardableResult
+    func fromNib<T: UIView>(withName xibName: String? = nil) -> T? {
+        let nibName = xibName ?? String(describing: type(of: self))
+        let nib = Bundle.main.loadNibNamed(
+            nibName,
+            owner: self,
+            options: nil
+        )
+        
+        guard let contentView = nib?.first as? T else {
+            return nil
+        }
+        
+        self.addSubview(contentView)
+        
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        return contentView
+    }
+}

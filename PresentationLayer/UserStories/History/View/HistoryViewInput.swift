@@ -15,4 +15,10 @@ protocol HistoryViewInput: class {
     func showError(withMessage message: String)
 
     func showHistory(with rows: [TableSection])
+
+    func showLoading()
+
+    func hideLoading()
+
+    func showSuccess(message: String)
 }

@@ -77,10 +77,10 @@ extension ScanViewController: ZBarReaderDelegate {
 
 extension ScanViewController {
     private func prepareViewController() {
-        UIAssistant.cornerRadius(forView: scanButton, radius: 10)
+        UIAssistant.cornerRadius(forView: scanButton, radius: 20)
         UIAssistant.setShadow(
                 forLayer: scanButton.layer,
-                color: Asset.Colors.scanButton.color,
+                color: scanButton.backgroundColor!,
                 radius: 0.5
         )
     }

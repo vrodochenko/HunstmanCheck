@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,14 +20,13 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o86-aY-ykK">
                                 <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
-                                <color key="backgroundColor" name="scanButton"/>
+                                <color key="backgroundColor" red="0.89276948168761672" green="0.92950904187817263" blue="0.92370383922919874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="eWD-55-bOA"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="lQM-Af-a0R"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <state key="normal" title="Сканировать">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="СКАНИРОВАТЬ">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -221,13 +219,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пользователь в черном списке" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-JP-KP8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Пользователь в черном списке:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-JP-KP8">
                                                     <rect key="frame" x="28" y="11.5" width="250.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88c-3k-EVa">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88c-3k-EVa">
                                                     <rect key="frame" x="305" y="11.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -246,10 +244,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Действия" id="GKN-p0-9Fc">
+                            <tableViewSection id="GKN-p0-9Fc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="ZeP-fc-lbC">
-                                        <rect key="frame" x="0.0" y="375.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="355.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZeP-fc-lbC" id="3tJ-s9-MVD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -424,9 +422,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlN-Ce-GOS" customClass="CUIXLoading" customModule="HuntsmanCheck" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="283.5" width="200" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="BH1-rP-da3"/>
+                                    <constraint firstAttribute="width" constant="200" id="FN3-Z0-gPZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="hlN-Ce-GOS" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="7bR-ex-6EO"/>
+                            <constraint firstItem="hlN-Ce-GOS" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="Amg-wM-V5s"/>
                             <constraint firstItem="QPK-cS-cfp" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="VwI-6J-sEt"/>
                             <constraint firstItem="QPK-cS-cfp" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="t9c-Ge-6lv"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="QPK-cS-cfp" secondAttribute="trailing" id="wUn-eK-foa"/>
@@ -443,6 +451,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="historyTableView" destination="QPK-cS-cfp" id="Ycd-HB-7Kj"/>
+                        <outlet property="lodingView" destination="hlN-Ce-GOS" id="XK0-Z0-bDc"/>
                         <segue destination="PKi-2C-Ebc" kind="show" identifier="showTicketInfo" id="jcJ-jx-ufD"/>
                     </connections>
                 </viewController>
@@ -472,7 +481,7 @@
         <scene sceneID="Ug7-tG-8KJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bs6-Fs-fVZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Сканировать" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Сканировать" image="qrLeft" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bkG-OT-VZH">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -491,7 +500,7 @@
         <scene sceneID="lZB-4q-Rym">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vXL-Rf-Cuy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="История" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="История" image="moreleft" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="80H-Da-i5t">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -508,13 +517,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
-        <namedColor name="scanButton">
-            <color red="0.35686274509803922" green="0.96078431372549022" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="moreleft" width="24" height="24"/>
+        <image name="qrLeft" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jcJ-jx-ufD"/>
+        <segue reference="cyG-Oo-LEI"/>
     </inferredMetricsTieBreakers>
 </document>

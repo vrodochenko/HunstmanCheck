@@ -15,6 +15,7 @@ class BlockPresenter: BasePresenter {
     private var router: BlockRouterInput!
 
     private var ticket: LMTicket!
+    private var moduleOutput: BlockModuleOutput?
 
     init(withView view: BlockViewController, router: BlockRouterInput, interactor: BlockInteractorInput) {
         self.view = view
@@ -24,6 +25,10 @@ class BlockPresenter: BasePresenter {
 }
 
 extension BlockPresenter: BlockModuleInput {
+    public func setModuleOutput(_ moduleOutput: RamblerViperModuleOutput!) {
+        self.moduleOutput = moduleOutput as? BlockModuleOutput
+    }
+
     func setTicket(_ ticket: LMTicket) {
         self.ticket = ticket
     }
@@ -42,6 +47,7 @@ extension BlockPresenter: BlockViewOutput {
 
         interactor.addToBlackList(ticket: ticket, comment: comment)
 
+        moduleOutput?.block()
         router.closeCurrentModule()
     }
 
