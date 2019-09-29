@@ -50,7 +50,7 @@ fileprivate class HistoryRouterPart: DIPart {
 fileprivate class HistoryInteractorsPart: DIPart {
     static func load(container: DIContainer) {
         container
-                .register1(HistoryInteractor.init(ticketsDao:))
+                .register(HistoryInteractor.init(ticketsDao:blkDao:ticketsService:))
                 .injection(cycle: true) {
                     $0.output = ($1 as HistoryPresenter)
                 }

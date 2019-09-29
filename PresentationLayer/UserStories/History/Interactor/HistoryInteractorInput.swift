@@ -11,4 +11,6 @@ import Foundation
 protocol HistoryInteractorInput {
 
     func getAllTickets() -> [LMTicket]
+
+    func uploadBlk()
 }

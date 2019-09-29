@@ -14,7 +14,8 @@ protocol HistoryViewOutput {
     */
 
     func viewIsReady()
-    
+
     func onTabCloseButton()
 
+    func didSelectUploadButton()
 }

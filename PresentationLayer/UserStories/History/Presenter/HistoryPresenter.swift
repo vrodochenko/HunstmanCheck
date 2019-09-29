@@ -36,11 +36,19 @@ extension HistoryPresenter: HistoryViewOutput {
     func onTabCloseButton() {
         router.closeCurrentModule()
     }
+
+    func didSelectUploadButton() {
+        interactor.uploadBlk()
+    }
 }
 
 extension HistoryPresenter: HistoryInteractorOutput {
     func onError(message: String) {
         view.showError(withMessage: message)
+    }
+
+    func didUploadBlk() {
+        // TODO
     }
 }
 

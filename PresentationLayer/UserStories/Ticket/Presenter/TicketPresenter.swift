@@ -48,6 +48,10 @@ extension TicketPresenter: TicketViewOutput {
         if ticket.isSaved || ticket.isBackMark {
             view.disableSaveButton()
         }
+
+        if ticket.isSaved && moduleOutput == nil{
+            view.showError(withMessage: "Повторное добавление посетителя.")
+        }
     }
 
     func onTabCloseButton() {
@@ -55,12 +59,18 @@ extension TicketPresenter: TicketViewOutput {
     }
 
     func didSelectSaveButton() {
-        if ticket.isSaved == false {
-            interactor.saveTicket(ticket)
-            router.closeCurrentModule()
-        } else {
-            view.showError(withMessage: "Повторное посещение")
+        guard ticket.isBackMark == false else {
+            view.showError(withMessage: "Посетитель находится в черном списке. Проход запрещен.")
+            return
         }
+
+        guard ticket.isSaved == false else {
+            view.showError(withMessage: "Повторное посещение")
+            return
+        }
+
+        interactor.saveTicket(ticket)
+        router.closeCurrentModule()
     }
 
     func didSelectBlockButton() {

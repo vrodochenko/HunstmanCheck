@@ -214,12 +214,42 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="aL9-1a-iM6">
+                                        <rect key="frame" x="0.0" y="275.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aL9-1a-iM6" id="bGd-cm-a4L">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пользователь в черном списке" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMi-JP-KP8">
+                                                    <rect key="frame" x="28" y="11.5" width="250.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88c-3k-EVa">
+                                                    <rect key="frame" x="305" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VMi-JP-KP8" firstAttribute="leading" secondItem="bGd-cm-a4L" secondAttribute="leadingMargin" constant="12" id="EdA-Ad-zgz"/>
+                                                <constraint firstItem="VMi-JP-KP8" firstAttribute="centerY" secondItem="bGd-cm-a4L" secondAttribute="centerY" id="Pib-Cx-iav"/>
+                                                <constraint firstItem="88c-3k-EVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VMi-JP-KP8" secondAttribute="trailing" constant="24" id="YCg-jU-Ysp"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="88c-3k-EVa" secondAttribute="trailing" constant="12" id="a72-dP-X3y"/>
+                                                <constraint firstItem="88c-3k-EVa" firstAttribute="centerY" secondItem="VMi-JP-KP8" secondAttribute="centerY" id="dh3-da-1bb"/>
+                                                <constraint firstItem="88c-3k-EVa" firstAttribute="centerY" secondItem="bGd-cm-a4L" secondAttribute="centerY" id="o0t-vX-c8Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Действия" id="GKN-p0-9Fc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="ZeP-fc-lbC">
-                                        <rect key="frame" x="0.0" y="331.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="375.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZeP-fc-lbC" id="3tJ-s9-MVD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -255,6 +285,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="blackList" destination="88c-3k-EVa" id="qes-XU-dH7"/>
                         <outlet property="dobLabel" destination="cXD-E6-Jp2" id="k1z-GL-dkf"/>
                         <outlet property="endToLabel" destination="Y2K-fT-HXk" id="Fgc-vj-j04"/>
                         <outlet property="nameLabel" destination="HKa-hx-pFM" id="zMx-cQ-iXe"/>
@@ -404,7 +435,11 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <navigationItem key="navigationItem" title="История" id="BwB-hn-Jvi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="reply" id="iNc-xL-vnK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="reply" id="iNc-xL-vnK">
+                            <connections>
+                                <action selector="uploadButton:" destination="8rJ-Kc-sve" id="Cyd-Mf-seL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="historyTableView" destination="QPK-cS-cfp" id="Ycd-HB-7Kj"/>

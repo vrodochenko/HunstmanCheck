@@ -10,4 +10,6 @@ import Foundation
 
 protocol HistoryInteractorOutput: class {
     func onError(message: String)
+
+    func didUploadBlk()
 }

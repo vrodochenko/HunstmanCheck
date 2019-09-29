@@ -23,6 +23,10 @@ class HistoryViewController: BaseUIViewController {
 
         output.viewIsReady()
     }
+    
+    @IBAction func uploadButton(_ sender: Any) {
+        output.didSelectUploadButton()
+    }    
 }
 
 extension HistoryViewController: HistoryViewInput {

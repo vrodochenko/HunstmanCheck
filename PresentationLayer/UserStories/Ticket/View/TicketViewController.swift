@@ -19,7 +19,8 @@ class TicketViewController: UITableViewController {
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-
+    @IBOutlet weak var blackList: UILabel!
+    
     var output: TicketViewOutput!
     private var isActiveActionSection = true
 
@@ -85,6 +86,15 @@ extension TicketViewController: TicketViewInput {
         self.dobLabel.text = ticket.dayOfBirth.toString(.RUSSIAN_DATE)
         self.serNumLabel.text = ticket.serNum
         self.nameLabel.text = ticket.fio
+
+        if ticket.isBackMark {
+            self.blackList.text = "Да"
+            self.blackList.textColor = .red
+        } else {
+            self.blackList.text = "Нет"
+        }
+
+
     }
 
     func showError(withMessage message: String) {
